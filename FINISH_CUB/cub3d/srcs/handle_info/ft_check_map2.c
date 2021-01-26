@@ -6,37 +6,44 @@
 /*   By: chly-huc <chly-huc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 14:49:00 by chly-huc          #+#    #+#             */
-/*   Updated: 2021/01/25 20:48:42 by chly-huc         ###   ########.fr       */
+/*   Updated: 2021/01/26 21:29:21 by chly-huc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
 
-int	ft_void_algo(int *i, int *j, int *k, char **map)
+int	ft_void_algo(int i, int j, int k, char **map)
 {
-	*k = *j;
-	while (*k > 0 && map[*i][*k] == ' ')
-		*k = *k - 1;
-	if (map[*i][*k] != '1' && *k != 0)
+	k = i;
+	while (k > 0 && map[k][j] == ' ')
+		k--;
+	if (map[k][j] != '1' && k != 0 && (map[k]
+	<= (map[k - 1])))
 		return (0);
-	*k = *j;
-	while (map[*i][*k] && map[*i][*k] == ' ')
-		*k = *k + 1;
-	if (map[*i][*k] != '1' && map[*i][*k])
+	k = i;
+	while (map[k] != NULL && map[k][j] == ' ')
+		k++;
+	if (map[k] != NULL && map[k][j] != '1' && (map[k]
+	<= (map[k + 1])))
 		return (0);
-	*k = *i;
-	while (*k > 0 && map[*k][*j] == ' ')
-		*k = *k - 1;
-	if (map[*k][*j] && map[*k][*j] != '1' && *k != 0 && (map[*k]
-	<= (map[*k - 1])))
+	/*
+	while (k > 0 && map[i][k] == ' ' && map[i][k] >= map[i - 1][k])
+		k--;
+	if (map[i][k] != '1' && k != 0)
 		return (0);
-	*k = *i;
-	while (map[*k] != NULL && map[*k][*j] == ' ')
-		*k = *k + 1;
-	if (map[*k])
-		if (map[*k][*j] && map[*k] != NULL && map[*k][*j] != '1' && (map[*k]
-		<= (map[*k + 1])))
+	k = j;
+	while (map[i][k] && map[i][k] == ' ')
+		k++;
+	if (map[i][k] != '1' && map[i][k])
+		return (0);
+	k = i;
+	while (map[k] != NULL && map[k][j] == ' ')
+		k++;
+	if (map[k])
+		if (map[k][j] && map[k] != NULL && map[k][j] != '1' && (map[k]
+		<= (map[k + 1])))
 			return (0);
+	*/
 	return (1);
 }
 

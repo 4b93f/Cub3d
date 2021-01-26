@@ -6,7 +6,7 @@
 /*   By: chly-huc <chly-huc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/15 17:16:21 by chly-huc          #+#    #+#             */
-/*   Updated: 2021/01/25 19:58:34 by chly-huc         ###   ########.fr       */
+/*   Updated: 2021/01/26 18:56:21 by chly-huc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,7 +102,6 @@ int			ft_check_map(t_params *params, char **map)
 	int k;
 
 	i = 1;
-	j = -1;
 	k = 0;
 	if (!map[2])
 		ft_error(WRONG_MAP_FORMAT, params);
@@ -114,6 +113,7 @@ int			ft_check_map(t_params *params, char **map)
 			ft_error(WRONG_MAP_FORMAT, params);
 		i++;
 	}
+	j = -1;
 	if (ft_check_space(j, k, params, map) == 0)
 		ft_error(WRONG_MAP_FORMAT, params);
 	if (params->find_pos != 1)
