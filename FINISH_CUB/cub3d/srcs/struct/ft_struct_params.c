@@ -6,7 +6,7 @@
 /*   By: chly-huc <chly-huc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/08 01:14:46 by root              #+#    #+#             */
-/*   Updated: 2020/11/16 18:53:47 by chly-huc         ###   ########.fr       */
+/*   Updated: 2021/01/27 21:25:44 by chly-huc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ static t_params	ft_create_params(void)
 	params.colorf = NULL;
 	params.argbcolorf = NULL;
 	params.map = NULL;
+	params.mapfill = NULL;
 	return (params);
 }
 

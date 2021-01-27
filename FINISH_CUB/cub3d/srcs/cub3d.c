@@ -6,7 +6,7 @@
 /*   By: chly-huc <chly-huc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/13 17:18:15 by chly-huc          #+#    #+#             */
-/*   Updated: 2021/01/25 17:13:20 by chly-huc         ###   ########.fr       */
+/*   Updated: 2021/01/27 21:14:59 by chly-huc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,6 @@ static void	game(t_params *params)
 	params->image->imgsave = mlx_get_data_addr(params->image->img,
 			&params->image->bpp, &params->image->sizeline,
 			&params->image->endian);
-	
 	ft_raycast(params, params->ray, params->color);
 	ft_mlx_hook(params);
 }

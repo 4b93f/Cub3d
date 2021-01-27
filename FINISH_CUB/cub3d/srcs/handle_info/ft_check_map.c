@@ -6,7 +6,7 @@
 /*   By: chly-huc <chly-huc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/13 19:47:26 by chly-huc          #+#    #+#             */
-/*   Updated: 2021/01/27 17:58:41 by chly-huc         ###   ########.fr       */
+/*   Updated: 2021/01/27 21:32:43 by chly-huc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,26 +73,69 @@ int		ft_check_char(t_params *params, char *map)
 	return (TRUE);
 }
 
+void floodfill(t_params *params, char **map)
+{
+	int i;
+	int j;
+	int len;
+
+	i = 0;
+	len = 0;
+	params->mapfill = NULL;
+	while (map[i])
+		i++;
+	params->mapfill = malloc(sizeof(char*) * (i + 1));
+	i = -1;
+	while (map[++i])
+	{
+		j = 0;
+		while (map[i][j])
+			j++;
+		if (len < j)
+			len = j;
+	}
+	i = -1;
+	printf("%d\n", len);
+	while (map[++i])
+	{
+		j = -1;
+		params->mapfill[i] = malloc(sizeof(char) * len + 1);
+		while (++j < len)
+			params->mapfill[i][j] = ' ';
+		params->mapfill[i][j] = '\0';
+	}
+	i = 0;
+	j = 0;
+	while (map[i])
+	{
+		params->mapfill[i] = ft_memcpy(params->mapfill[i], map[i], strlen(map[i]));
+		i++;
+	}
+	params->mapfill[i] = NULL;
+}
+
 int		ft_check_space(int j, int k, t_params *params, char **map)
 {
 	int i;
 
 	i = -1;
-	while (map[++i])
+	floodfill(params, map);
+	//print_tab(params->mapfill);
+	while (params->mapfill[++i])
 	{
-		while (map[i][++j])
+		while (params->mapfill[i][++j])
 		{
-			if (map[i][j] == ' ')
+			if (params->mapfill[i][j] == ' ')
 			{
 				k = j;
-				if (!(ft_void_algo(i, j, k, map)))
-					ft_error(RGB_ERROR, params);
-			}
-			if (map[i][j] == '0')
-			{
-				k = j;
-				if (!(ft_zero_algo(i, j, k, map)))
+				if (!(ft_void_algo(i, j, k, params->mapfill)))
 					ft_error(WRONG_MAP_FORMAT, params);
+			}
+			if (params->mapfill[i][j] == '0')
+			{
+				k = j;
+				//if (!(ft_zero_algo(i, j, k, params->mapfill)))
+					//ft_error(WRONG_MAP_FORMAT, params);
 			}
 		}
 		j = -1;

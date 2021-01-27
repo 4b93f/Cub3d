@@ -6,7 +6,7 @@
 /*   By: chly-huc <chly-huc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/15 17:16:21 by chly-huc          #+#    #+#             */
-/*   Updated: 2021/01/27 17:56:25 by chly-huc         ###   ########.fr       */
+/*   Updated: 2021/01/27 21:14:25 by chly-huc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,8 +109,11 @@ int			ft_check_map(t_params *params, char **map)
 		ft_error(WRONG_MAP_FORMAT, params);
 	while (map[i + 1] != NULL)
 	{
+		//print_tab(map);
 		if (ft_check_char(params, map[i]) == FALSE)
+		{
 			ft_error(WRONG_MAP_FORMAT, params);
+		}
 		i++;
 	}
 	j = -1;

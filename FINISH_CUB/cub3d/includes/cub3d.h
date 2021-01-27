@@ -6,7 +6,7 @@
 /*   By: chly-huc <chly-huc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/06 19:15:57 by chly-huc          #+#    #+#             */
-/*   Updated: 2021/01/27 17:58:36 by chly-huc         ###   ########.fr       */
+/*   Updated: 2021/01/27 21:26:50 by chly-huc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -224,6 +224,7 @@ typedef struct			s_params
 	char			**argbcolorf;
 	char			**argbcolorc;
 	char			**map;
+	char			**mapfill;
 	void			*mlx_txt_n;
 	void			*mlx_txt_s;
 	void			*mlx_txt_w;

@@ -6,7 +6,7 @@
 /*   By: chly-huc <chly-huc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 14:49:00 by chly-huc          #+#    #+#             */
-/*   Updated: 2021/01/27 17:59:27 by chly-huc         ###   ########.fr       */
+/*   Updated: 2021/01/27 20:32:15 by chly-huc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	ft_void_algo(int i, int j, int k, char **map)
 			printf("VERS LE HAUT\n");
 			return (0);
 		}
-	}	
+	}
 	k = i;
 	if (k != 0 && map[k + 1] != NULL)
 	{
