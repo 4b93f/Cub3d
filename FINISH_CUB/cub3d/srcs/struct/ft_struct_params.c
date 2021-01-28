@@ -6,7 +6,7 @@
 /*   By: chly-huc <chly-huc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/08 01:14:46 by root              #+#    #+#             */
-/*   Updated: 2021/01/27 21:25:44 by chly-huc         ###   ########.fr       */
+/*   Updated: 2021/01/28 19:17:25 by chly-huc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,4 +74,14 @@ void			ft_free_params(t_params *to_free)
 	}
 	free(to_free->map);
 	free(to_free);
+}
+
+void			ft_free_mapfill(t_params *to_free)
+{
+	int			i;
+
+	i = -1;
+	while (to_free->mapfill[++i])
+		free(to_free->mapfill[i]);
+	free(to_free->mapfill);
 }

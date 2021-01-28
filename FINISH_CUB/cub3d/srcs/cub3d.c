@@ -6,7 +6,7 @@
 /*   By: chly-huc <chly-huc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/13 17:18:15 by chly-huc          #+#    #+#             */
-/*   Updated: 2021/01/27 21:14:59 by chly-huc         ###   ########.fr       */
+/*   Updated: 2021/01/28 19:27:42 by chly-huc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,7 @@ int			main(int argc, char **argv)
 	t_params	*params;
 
 	params = NULL;
+	(void)argc;
 	fd = open(argv[1], O_RDONLY);
 	if (fd == -1)
 		quit(NO_MAPFILE, params);
@@ -74,5 +75,5 @@ int			main(int argc, char **argv)
 	ft_init_game(params, fd);
 	parameters(params, argc, argv);
 	game(params);
-	exit(0);
+	return (1);
 }

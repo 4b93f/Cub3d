@@ -6,7 +6,7 @@
 /*   By: chly-huc <chly-huc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/08 16:26:08 by root              #+#    #+#             */
-/*   Updated: 2020/11/17 16:52:09 by chly-huc         ###   ########.fr       */
+/*   Updated: 2021/01/28 19:23:20 by chly-huc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,9 @@ char **strfree)
 		i++;
 	if (!(cpy = malloc(sizeof(char *) * (i + 2))))
 		quit(MALLOC_ERROR, params);
-	i = 0;
-	while (str[i] != NULL)
-	{
+	i = -1;
+	while (str[++i] != NULL)
 		cpy[i] = (str[i]);
-		i++;
-	}
 	cpy[i] = line;
 	cpy[i + 1] = NULL;
 	free(strfree);

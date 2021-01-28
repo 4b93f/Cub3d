@@ -6,7 +6,7 @@
 /*   By: chly-huc <chly-huc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/15 18:42:02 by chly-huc          #+#    #+#             */
-/*   Updated: 2020/11/17 17:37:02 by chly-huc         ###   ########.fr       */
+/*   Updated: 2021/01/28 19:31:51 by chly-huc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,8 @@ void		free_struct(t_params *params)
 	free(params->image);
 	free(params->bmp);
 	free(params->player);
+	if (params->mapfill != NULL)
+		ft_free_mapfill(params);
 	ft_free_params(params);
 }
 

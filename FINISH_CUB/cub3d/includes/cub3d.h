@@ -6,7 +6,7 @@
 /*   By: chly-huc <chly-huc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/06 19:15:57 by chly-huc          #+#    #+#             */
-/*   Updated: 2021/01/27 21:26:50 by chly-huc         ###   ########.fr       */
+/*   Updated: 2021/01/28 20:27:20 by chly-huc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -206,8 +206,8 @@ typedef struct			s_spvalues
 typedef struct			s_params
 {
 	int				map_find;
-	unsigned int				res_x;
-	unsigned int				res_y;
+	int				res_x;
+	int				res_y;
 	int				find_pos;
 	int				player_orientation;
 	int				screenwidth;
@@ -256,8 +256,7 @@ int						ft_check_map(t_params *params, char **map);
 int						ft_zero_algo(int i, int j, int k, char **map);
 int						ft_updownwall(char *map);
 int						ft_check_char(t_params *params, char *map);
-int						ft_check_space(int j, int k, t_params *params,
-						char **map);
+int						ft_check_space(int j, int k, t_params *params);
 int						key_pressed(int key_pressed, t_params *params);
 int						mouse_event(t_params *params);
 
@@ -266,6 +265,7 @@ int						ft_error(int error, t_params *params);
 char					**ft_map_parsing(t_params *params, int fd,
 						char *firstline);
 void					cut(char *s, t_params *params);
+void					floodfill(t_params *params, char **map);
 void					ft_check_floor(t_params *params);
 void					ft_check_cell(t_params *params);
 void					format_color(t_params *params);
@@ -300,6 +300,7 @@ void					ft_sprite_to_image(t_params *params);
 void					save(t_params *params);
 void					free_struct(t_params *params);
 void					ft_free_params(t_params *to_free);
+void					ft_free_mapfill(t_params *to_free);
 void					ft_free_sprite(t_draw_sprite *to_free);
 void					ft_free_tex(t_tex *to_free);
 void					parameters(t_params *params, int argc, char **argv);

@@ -6,7 +6,7 @@
 /*   By: chly-huc <chly-huc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/13 17:57:20 by chly-huc          #+#    #+#             */
-/*   Updated: 2021/01/25 18:16:58 by chly-huc         ###   ########.fr       */
+/*   Updated: 2021/01/28 21:06:22 by chly-huc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,16 +19,6 @@ int		ft_isspace(int c)
 			|| c == ' ')
 		return (1);
 	return (0);
-}
-
-void print_tab(char **str)
-{
-	int i;
-
-	i = -1;
-	while (str[++i])
-		printf("{%s}\n", str[i]);
-	return ;
 }
 
 int		check_line(char *line)
@@ -60,12 +50,12 @@ int		find_duplicate(char *str, int c)
 	return (num);
 }
 
-int check_if_digit(char *str)
+int		check_if_digit(char *str)
 {
 	int i;
 
 	i = -1;
-	while(str[++i])
+	while (str[++i])
 	{
 		if (str[i] >= '0' && str[i] <= '9')
 			return (1);
