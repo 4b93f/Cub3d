@@ -6,7 +6,7 @@
 /*   By: chly-huc <chly-huc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 14:49:00 by chly-huc          #+#    #+#             */
-/*   Updated: 2021/01/28 19:36:00 by chly-huc         ###   ########.fr       */
+/*   Updated: 2021/01/29 19:14:04 by chly-huc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,11 +56,8 @@ int	ft_zero_algo(int i, int j, int k, char **map)
 		if (map[k--][j] == ' ')
 			return (0);
 	k = i;
-	if (map[k + 1] != NULL)
-	{
-		while (map[k][j] != '1')
-			if (map[k++][j] == ' ')
-				return (0);
-	}
+	while (map[k] != NULL && map[k][j] != '1')
+		if (map[k++][j] == ' ')
+			return (0);
 	return (!map[k] ? 0 : 1);
 }

@@ -6,7 +6,7 @@
 /*   By: chly-huc <chly-huc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/13 17:18:15 by chly-huc          #+#    #+#             */
-/*   Updated: 2021/01/28 19:27:42 by chly-huc         ###   ########.fr       */
+/*   Updated: 2021/01/28 21:08:00 by chly-huc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static int	start(t_params *params)
 	return (1);
 }
 
-void		ft_mlx_hook(t_params *params)
+static void	ft_mlx_hook(t_params *params)
 {
 	mlx_hook(params->ray->window, 2, 1L << 0, key_pressed, params);
 	mlx_hook(params->ray->window, 3, 1L << 0, key_released, params);

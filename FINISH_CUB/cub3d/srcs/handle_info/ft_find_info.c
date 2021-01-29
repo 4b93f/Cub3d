@@ -6,7 +6,7 @@
 /*   By: chly-huc <chly-huc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/15 17:16:21 by chly-huc          #+#    #+#             */
-/*   Updated: 2021/01/28 20:28:43 by chly-huc         ###   ########.fr       */
+/*   Updated: 2021/01/29 17:53:08 by chly-huc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,13 +50,11 @@ static void	param_r(t_params *params, char *str)
 
 void		ft_resolution(t_params *params)
 {
-	char	**tmp;
 	int		res_screen_x;
 	int		res_screen_y;
 	void	*mlx;
 
 	mlx = mlx_init();
-	tmp = NULL;
 	if (!params->res)
 		ft_error(ANOMALY_RES, params);
 	param_r(params, params->res);
