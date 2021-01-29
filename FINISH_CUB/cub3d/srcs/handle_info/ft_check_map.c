@@ -6,7 +6,7 @@
 /*   By: chly-huc <chly-huc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/13 19:47:26 by chly-huc          #+#    #+#             */
-/*   Updated: 2021/01/29 19:10:08 by chly-huc         ###   ########.fr       */
+/*   Updated: 2021/01/29 21:22:39 by chly-huc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,15 @@ int		ft_check_startend(char *str)
 	int i;
 
 	i = 0;
-	while (str[i] && str[i] == ' ')
+	while (str[i] && ft_isspace(str[i]))
 		i++;
-	if (str[i] != '1')
+	if (str[i] != '1' && !ft_isspace(str[i]) && str[i] != 0)
 		return (FALSE);
 	i = ft_strlen(str) - 1;
-	while (i > 0 && str[i] == ' ')
+	while (i > 0 && ft_isspace(str[i]))
 		i--;
-	if (str[i] != '1')
-		return (FALSE);
+	if (str[i] != '1' && !ft_isspace(str[i]) && str[i] != 0)
+		return (TRUE);
 	return (TRUE);
 }
 
@@ -38,7 +38,7 @@ int		ft_updownwall(char *map)
 		return (FALSE);
 	while (map[i])
 	{
-		if (map[i] != '1' && map[i] != ' ')
+		if (map[i] != '1' && !ft_isspace(map[i]))
 			return (FALSE);
 		i++;
 	}
@@ -60,8 +60,8 @@ int		ft_check_char(t_params *params, char *map)
 			params->player_orientation = map[i];
 		}
 		if (map[i] == 'N' || map[i] == 'S' || map[i] == 'W'
-		|| map[i] == 'E' || map[i] == ' ' || map[i] == '0'
-		|| map[i] == '1' || map[i] == '2')
+		|| map[i] == 'E' || map[i] == '\n' || map[i] == '0'
+		|| map[i] == '1' || map[i] == '2' || ft_isspace(map[i]))
 		{
 			if (map[i] == '2')
 				params->sp->numsprite += 1;
@@ -87,13 +87,10 @@ int		ft_check_space(int j, int k, t_params *params)
 			{
 				k = j;
 				if (!(ft_void_algo(i, j, k, params->mapfill)))
-					ft_error(WRONG_MAP_FORMAT, params);
+					ft_error(RGB_ERROR, params);
 			}
 			if (params->mapfill[i][j] == '0')
 			{
-				k = j;
-				if (!(ft_zero_algo(i, j, k, params->mapfill)))
-					ft_error(WRONG_MAP_FORMAT, params);
 			}
 		}
 		j = -1;

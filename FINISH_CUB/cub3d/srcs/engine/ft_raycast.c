@@ -6,7 +6,7 @@
 /*   By: chly-huc <chly-huc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/19 17:50:31 by becentrale        #+#    #+#             */
-/*   Updated: 2021/01/29 18:14:04 by chly-huc         ###   ########.fr       */
+/*   Updated: 2021/01/29 21:04:04 by chly-huc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ static void	wall_dist(t_params *params, t_ray *ray, double *wallx)
 	{
 		ray->perpwalldist = (ray->mapy - params->player->posy
 				+ (1 - ray->stepy) / 2) / ray->raydiry;
-		printf("%f\n", ray->perpwalldist);
 	}
 	ray->lineheight = (params->screenheight / ray->perpwalldist);
 	ray->drawstart = (-ray->lineheight / 2 + (params->screenheight / 2));
