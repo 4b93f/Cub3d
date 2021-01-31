@@ -6,7 +6,7 @@
 /*   By: chly-huc <chly-huc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 14:49:00 by chly-huc          #+#    #+#             */
-/*   Updated: 2021/01/30 17:20:55 by chly-huc         ###   ########.fr       */
+/*   Updated: 2021/01/31 17:04:00 by chly-huc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,12 @@
 int	ft_void_algo(int i, int j, int k, char **map)
 {
 	k = i;
-	while (k > 0 && map[k][j] == ' ')
+	while (k > 0 && ft_isspace(map[k][j]))
 		k--;
 	if (map[k][j] != '1' && k != 0)
 		return (0);
 	k = i;
-	if (k != 0 && map[k + 1] != NULL)
+	if (map[k + 1] != NULL)
 	{
 		while (map[k] != NULL && ft_isspace(map[k][j]))
 			k++;
@@ -59,5 +59,5 @@ int	ft_zero_algo(int i, int j, int k, char **map)
 	while (map[k] != NULL && map[k][j] != '1')
 		if (ft_isspace(map[k++][j]))
 			return (0);
-	return (!map[k] ? 0 : 1);
+	return (1);
 }

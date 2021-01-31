@@ -6,7 +6,7 @@
 /*   By: chly-huc <chly-huc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/15 17:16:21 by chly-huc          #+#    #+#             */
-/*   Updated: 2021/01/29 21:18:24 by chly-huc         ###   ########.fr       */
+/*   Updated: 2021/01/31 18:00:57 by chly-huc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,8 @@ void		ft_resolution(t_params *params)
 	int		res_screen_y;
 	void	*mlx;
 
-	mlx = mlx_init();
+	if (!(mlx = mlx_init()))
+		ft_error(MALLOC_ERROR, params);
 	if (!params->res)
 		ft_error(ANOMALY_RES, params);
 	param_r(params, params->res);
@@ -103,22 +104,20 @@ int			ft_check_map(t_params *params, char **map)
 	k = 0;
 	if (!map[2])
 		ft_error(WRONG_MAP_FORMAT, params);
-	if (ft_updownwall(map[0]) == 0)
+	if (ft_updownwall(map[0], params) == 0)
 		ft_error(WRONG_MAP_FORMAT, params);
 	while (map[i + 1] != NULL)
 	{
 		if (ft_check_char(params, map[i]) == FALSE)
-		{
 			ft_error(WRONG_MAP_FORMAT, params);
-		}
 		i++;
 	}
 	j = -1;
 	if (ft_check_space(j, k, params) == 0)
 		ft_error(WRONG_MAP_FORMAT, params);
-	if (ft_updownwall(map[i]) == 0)
+	if (ft_updownwall(map[i], params) == 0)
 		ft_error(WRONG_MAP_FORMAT, params);
 	if (params->find_pos != 1)
-		ft_error(WRONG_MAP_FORMAT, params);
+		ft_error(PLAYER_ERROR, params);
 	return (TRUE);
 }

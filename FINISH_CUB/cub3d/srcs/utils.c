@@ -6,7 +6,7 @@
 /*   By: chly-huc <chly-huc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/13 17:57:20 by chly-huc          #+#    #+#             */
-/*   Updated: 2021/01/28 21:06:22 by chly-huc         ###   ########.fr       */
+/*   Updated: 2021/01/31 17:56:30 by chly-huc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,10 +43,8 @@ int		find_duplicate(char *str, int c)
 	i = -1;
 	num = 0;
 	while (str[++i])
-	{
 		if (str[i] == c)
 			num++;
-	}
 	return (num);
 }
 

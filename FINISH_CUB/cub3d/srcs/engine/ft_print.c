@@ -6,7 +6,7 @@
 /*   By: chly-huc <chly-huc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/01 17:12:57 by chly-huc          #+#    #+#             */
-/*   Updated: 2020/11/14 18:48:27 by chly-huc         ###   ########.fr       */
+/*   Updated: 2021/01/31 17:42:14 by chly-huc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@ void	reset_image(t_params *params)
 	int		x;
 	int		y;
 
-	x = 0;
+	x = -1;
 	y = 0;
-	while (x < (params->screenwidth * params->screenheight))
+	while (++x < (params->screenwidth * params->screenheight))
 	{
 		params->image->imgdata[x * 4 + y *
 		params->image->sizeline] = (int)0;
@@ -27,7 +27,6 @@ void	reset_image(t_params *params)
 		params->image->sizeline + 1] = (int)0;
 		params->image->imgdata[x * 4 + y *
 		params->image->sizeline + 2] = (int)0;
-		x++;
 	}
 }
 

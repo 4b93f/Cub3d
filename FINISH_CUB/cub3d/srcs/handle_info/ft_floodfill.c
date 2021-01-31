@@ -6,7 +6,7 @@
 /*   By: chly-huc <chly-huc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/28 20:23:08 by chly-huc          #+#    #+#             */
-/*   Updated: 2021/01/28 20:25:21 by chly-huc         ###   ########.fr       */
+/*   Updated: 2021/01/31 17:50:59 by chly-huc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static void	floodfill2(t_params *params, char **map, int len)
 	while (map[++i])
 	{
 		params->mapfill[i] = ft_memcpy(params->mapfill[i],
-		map[i], strlen(map[i]));
+		map[i], ft_strlen(map[i]));
 	}
 	params->mapfill[i] = NULL;
 }

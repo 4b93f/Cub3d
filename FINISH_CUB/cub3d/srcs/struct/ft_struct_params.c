@@ -6,7 +6,7 @@
 /*   By: chly-huc <chly-huc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/08 01:14:46 by root              #+#    #+#             */
-/*   Updated: 2021/01/28 19:17:25 by chly-huc         ###   ########.fr       */
+/*   Updated: 2021/01/31 17:54:42 by chly-huc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,10 +68,8 @@ void			ft_free_params(t_params *to_free)
 
 	i = -1;
 	if (to_free->map != NULL)
-	{
 		while (to_free->map[++i])
 			free(to_free->map[i]);
-	}
 	free(to_free->map);
 	free(to_free);
 }

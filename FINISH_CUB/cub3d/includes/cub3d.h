@@ -6,7 +6,7 @@
 /*   By: chly-huc <chly-huc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/06 19:15:57 by chly-huc          #+#    #+#             */
-/*   Updated: 2021/01/28 20:27:20 by chly-huc         ###   ########.fr       */
+/*   Updated: 2021/01/31 16:43:17 by chly-huc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,11 +42,13 @@ enum					e_error
 	RGB_MISSING,
 	WRONG_CHAR_IN_RGB,
 	ANOMALY_RES,
-	PLAYER_NOT_FOUND,
+	PLAYER_ERROR,
 	ANOMALY_SPRITE,
 	SOMETHING_IS_MISSING,
 	WRONG_MAP_FORMAT,
 	ERROR_ARGUMENT,
+	WRONG_ZERO_PLACEMENT,
+	WRONG_VOID_PLACEMENT
 };
 
 typedef struct			s_bmp
@@ -254,7 +256,7 @@ int						check_if_digit(char *str);
 int						ft_void_algo(int i, int j, int k, char **map);
 int						ft_check_map(t_params *params, char **map);
 int						ft_zero_algo(int i, int j, int k, char **map);
-int						ft_updownwall(char *map);
+int						ft_updownwall(char *map, t_params *params);
 int						ft_check_char(t_params *params, char *map);
 int						ft_check_space(int j, int k, t_params *params);
 int						key_pressed(int key_pressed, t_params *params);

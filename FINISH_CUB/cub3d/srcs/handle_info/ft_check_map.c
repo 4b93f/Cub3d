@@ -6,13 +6,13 @@
 /*   By: chly-huc <chly-huc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/13 19:47:26 by chly-huc          #+#    #+#             */
-/*   Updated: 2021/01/30 17:21:12 by chly-huc         ###   ########.fr       */
+/*   Updated: 2021/01/31 17:44:25 by chly-huc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
 
-int		ft_check_startend(char *str)
+static int	ft_check_startend(char *str, t_params *params)
 {
 	int i;
 
@@ -20,37 +20,54 @@ int		ft_check_startend(char *str)
 	while (str[i] && ft_isspace(str[i]))
 		i++;
 	if (str[i] != '1' && !ft_isspace(str[i]) && str[i] != 0)
-		return (FALSE);
+	{
+		if (str[i] == ' ')
+			ft_error(WRONG_VOID_PLACEMENT, params);
+		if (str[i] == '0')
+			ft_error(WRONG_ZERO_PLACEMENT, params);
+	}
 	i = ft_strlen(str) - 1;
 	while (i > 0 && ft_isspace(str[i]))
 		i--;
 	if (str[i] != '1' && !ft_isspace(str[i]) && str[i] != 0)
-		return (TRUE);
+	{
+		if (str[i] == ' ')
+			ft_error(WRONG_VOID_PLACEMENT, params);
+		if (str[i] == '0')
+			ft_error(WRONG_ZERO_PLACEMENT, params);
+	}
 	return (TRUE);
 }
 
-int		ft_updownwall(char *map)
+int			ft_updownwall(char *map, t_params *params)
 {
 	int i;
 
 	i = 0;
-	if (ft_check_startend(map) == FALSE)
+	if (ft_check_startend(map, params) == FALSE)
 		return (FALSE);
 	while (map[i])
 	{
 		if (map[i] != '1' && !ft_isspace(map[i]))
-			return (FALSE);
+		{
+			if (map[i] == ' ')
+				ft_error(WRONG_VOID_PLACEMENT, params);
+			else if (map[i] == '0')
+				ft_error(WRONG_ZERO_PLACEMENT, params);
+			else
+				ft_error(WRONG_MAP_FORMAT, params);
+		}
 		i++;
 	}
 	return (TRUE);
 }
 
-int		ft_check_char(t_params *params, char *map)
+int			ft_check_char(t_params *params, char *map)
 {
 	int i;
 
 	i = 0;
-	if (ft_check_startend(map) == FALSE)
+	if (ft_check_startend(map, params) == FALSE)
 		return (FALSE);
 	while (map[i])
 	{
@@ -73,7 +90,7 @@ int		ft_check_char(t_params *params, char *map)
 	return (TRUE);
 }
 
-int		ft_check_space(int j, int k, t_params *params)
+int			ft_check_space(int j, int k, t_params *params)
 {
 	int i;
 
@@ -83,16 +100,16 @@ int		ft_check_space(int j, int k, t_params *params)
 	{
 		while (params->mapfill[i][++j])
 		{
-			if (params->mapfill[i][j] == ' ')
+			if (ft_isspace(params->mapfill[i][j]))
 			{
 				k = j;
 				if (!(ft_void_algo(i, j, k, params->mapfill)))
-					ft_error(RGB_ERROR, params);
+					ft_error(WRONG_VOID_PLACEMENT, params);
 			}
 			if (params->mapfill[i][j] == '0')
 			{
 				if (!(ft_zero_algo(i, j, k, params->mapfill)))
-					ft_error(WRONG_MAP_FORMAT, params);
+					ft_error(WRONG_ZERO_PLACEMENT, params);
 			}
 		}
 		j = -1;

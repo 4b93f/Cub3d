@@ -6,7 +6,7 @@
 /*   By: chly-huc <chly-huc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/15 18:42:02 by chly-huc          #+#    #+#             */
-/*   Updated: 2021/01/28 19:31:51 by chly-huc         ###   ########.fr       */
+/*   Updated: 2021/01/31 17:48:26 by chly-huc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,8 @@ void		free_struct(t_params *params)
 	free(params->image);
 	free(params->bmp);
 	free(params->player);
-	if (params->mapfill != NULL)
+	free(params->ray);
+	if (params->mapfill)
 		ft_free_mapfill(params);
 	ft_free_params(params);
 }
@@ -61,11 +62,13 @@ void		quit(int num, t_params *params)
 		"Error\nMissing something in RGB Color\n",
 		"Error\nWrong format in RGB color\n",
 		"Error\nMissing/Wrong Resolution\n",
-		"Error\nPlayer not found\n",
+		"Error\nToo much/No Player found\n",
 		"Error\nAnomaly with sprite\n",
 		"Error\nMissing parameters\n",
 		"Error\nWrong format in map\n",
-		"Error\nInvalid argument\n"
+		"Error\nInvalid argument\n",
+		"Error\nWrong zero placement\n",
+		"Error\nWrong void placement\n"
 	};
 
 	if (num > 0)
