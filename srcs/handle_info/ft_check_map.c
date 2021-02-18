@@ -6,7 +6,7 @@
 /*   By: chly-huc <chly-huc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/13 19:47:26 by chly-huc          #+#    #+#             */
-/*   Updated: 2021/01/31 17:44:25 by chly-huc         ###   ########.fr       */
+/*   Updated: 2021/02/05 15:20:59 by chly-huc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static int	ft_check_startend(char *str, t_params *params)
 	i = ft_strlen(str) - 1;
 	while (i > 0 && ft_isspace(str[i]))
 		i--;
-	if (str[i] != '1' && !ft_isspace(str[i]) && str[i] != 0)
+	if (str[0] && str[i] != '1' && !ft_isspace(str[i]) && str[i] != 0)
 	{
 		if (str[i] == ' ')
 			ft_error(WRONG_VOID_PLACEMENT, params);

@@ -6,7 +6,7 @@
 /*   By: chly-huc <chly-huc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/13 17:18:15 by chly-huc          #+#    #+#             */
-/*   Updated: 2021/01/31 17:58:26 by chly-huc         ###   ########.fr       */
+/*   Updated: 2021/02/04 17:36:44 by chly-huc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ int			main(int argc, char **argv)
 	fd = open(argv[1], O_RDONLY);
 	if (fd == -1)
 		quit(NO_MAPFILE, params);
-	if (ft_strncmp(argv[1], ".cub", ft_strlen(argv[1])) == 0)
+	if (ft_strncmp(ft_strchr(argv[1], '.'), ".cub", ft_strlen(argv[1])) != 0)
 		quit(NO_MAPFILE, params);
 	if (!(params = ft_malloc_params()))
 		return (0);

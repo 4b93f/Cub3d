@@ -8,7 +8,7 @@ SRCS   = 	srcs/engine/ft_bitmap.c srcs/handle_info/ft_check_map.c srcs/handle_in
 			srcs/struct/ft_struct_player.c srcs/struct/ft_struct_ray.c srcs/struct/ft_struct_sprite.c \
 			srcs/struct/ft_struct_spvalues.c srcs/struct/ft_struct_tex.c srcs/handle_info/ft_textures.c \
 			srcs/utils.c get_next_line/get_next_line.c get_next_line/get_next_line_utils.c srcs/cub3d.c \
-			srcs/engine/ft_quit.c srcs/handle_info/ft_floodfill.c\
+			srcs/engine/ft_quit.c srcs/handle_info/ft_floodfill.c srcs/utils2.c\
 
 
 HEADERS =	cub3d.h
@@ -20,7 +20,7 @@ LIB = ./lib/libft.a ./lib/libftprintf.a libmlx.dylib
 CC = gcc
 
 .c.o:
-			${CC} ${FLAGS} -I ${HEADERS} -c $^ -o ${<:.c=.o}
+			@${CC} ${FLAGS} -I ${HEADERS} -c $^ -o ${<:.c=.o}
 
 $(NAME) : $(OBJS)
 	@echo "[Remove last version...]"
@@ -30,7 +30,7 @@ $(NAME) : $(OBJS)
 	@echo "[ft_printf compilation...]"
 	@$(MAKE) -C ./ft_printf && cp ./ft_printf/libftprintf.a ./lib && cp ./ft_printf/ft_printf.h ./includes
 	@echo "[Minilibx compilation...]"
-	@$(MAKE) -C ./minilibx && cp ./minilibx/libmlx.dylib ../Cub3D && cp ./minilibx/mlx.h ./includes 
+	@$(MAKE) -C ./minilibx && cp ./minilibx/libmlx.dylib ./ && cp ./minilibx/mlx.h ./includes 
 	@echo "[Cub3D compilation...]"
 	@${CC} ${FLAGS} ${MLX} ${LIB} $(OBJS) -o $(NAME)
 	@echo "[Done !]"

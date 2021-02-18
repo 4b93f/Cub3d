@@ -6,7 +6,7 @@
 /*   By: chly-huc <chly-huc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 16:28:12 by chly-huc          #+#    #+#             */
-/*   Updated: 2021/01/31 17:42:08 by chly-huc         ###   ########.fr       */
+/*   Updated: 2021/02/01 20:32:50 by chly-huc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ static void	reverse_bis(t_params *params, int max, int x, int i)
 	x = 0;
 	while (i < params->screenwidth / 2)
 	{
+		max = params->screenwidth - i - 1;
 		while (x < (params->screenwidth * params->screenheight))
 		{
 			params->temp = params->image->imgdata[x * 4 + 0 + 0];
@@ -36,7 +37,6 @@ static void	reverse_bis(t_params *params, int max, int x, int i)
 			max += params->screenwidth;
 		}
 		x = 0 + i;
-		max = params->screenwidth - i - 1;
 		i++;
 	}
 }

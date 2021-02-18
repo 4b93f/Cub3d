@@ -6,7 +6,7 @@
 /*   By: chly-huc <chly-huc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/19 18:30:34 by becentrale        #+#    #+#             */
-/*   Updated: 2021/01/28 16:52:18 by chly-huc         ###   ########.fr       */
+/*   Updated: 2021/02/04 17:51:25 by chly-huc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ static t_ray	ft_create_ray(t_params *params)
 	if (!(ray.mlx = mlx_init()))
 		quit(MALLOC_ERROR, params);
 	if (!(ray.window = mlx_new_window(ray.mlx, params->screenwidth,
-	params->screenheight, "TITLE")))
+	params->screenheight, "Cub3D")))
 		quit(MALLOC_ERROR, params);
 	return (ray);
 }

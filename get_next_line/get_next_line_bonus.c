@@ -6,7 +6,7 @@
 /*   By: chly-huc <chly-huc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/08 10:29:20 by chly-huc          #+#    #+#             */
-/*   Updated: 2020/02/03 09:07:05 by chly-huc         ###   ########.fr       */
+/*   Updated: 2021/02/01 14:36:06 by chly-huc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,8 @@ char	*rest(char *strings)
 		return (NULL);
 	while (strings[i] && strings[i] != '\n')
 		i++;
-	tmp = malloc(sizeof(char*) * ft_strlen(strings));
+	if (!tmp = malloc(sizeof(char*) * ft_strlen(strings)))
+		return (NULL);
 	while (strings[i])
 	{
 		tmp[j] = strings[i + 1];

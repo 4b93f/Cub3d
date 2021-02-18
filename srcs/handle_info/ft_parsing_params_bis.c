@@ -6,7 +6,7 @@
 /*   By: chly-huc <chly-huc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/02 20:45:46 by chly-huc          #+#    #+#             */
-/*   Updated: 2021/01/25 18:18:59 by chly-huc         ###   ########.fr       */
+/*   Updated: 2021/02/01 18:17:12 by chly-huc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,7 +100,7 @@ void	format_color(t_params *params)
 			params->color->cell_g < 0 || params->color->cell_b < 0)
 		quit(RGB_ERROR, params);
 	if (params->color->floor_r > 255 || params->color->floor_g > 255 ||
-			params->color->floor_g > 255 || params->color->floor_r < 0 ||
+			params->color->floor_b > 255 || params->color->floor_r < 0 ||
 			params->color->floor_g < 0 || params->color->floor_b < 0)
 		quit(RGB_ERROR, params);
 }

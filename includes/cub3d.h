@@ -6,7 +6,7 @@
 /*   By: chly-huc <chly-huc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/06 19:15:57 by chly-huc          #+#    #+#             */
-/*   Updated: 2021/01/31 16:43:17 by chly-huc         ###   ########.fr       */
+/*   Updated: 2021/02/04 21:13:25 by chly-huc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,8 @@ enum					e_error
 	WRONG_MAP_FORMAT,
 	ERROR_ARGUMENT,
 	WRONG_ZERO_PLACEMENT,
-	WRONG_VOID_PLACEMENT
+	WRONG_VOID_PLACEMENT,
+	VOID_LINE
 };
 
 typedef struct			s_bmp
@@ -252,6 +253,7 @@ int						find_duplicate(char *str, int c);
 int						check_line(char *line);
 int						check_line(char *line);
 int						ft_isspace(int c);
+int						tablen (char **tab);
 int						check_if_digit(char *str);
 int						ft_void_algo(int i, int j, int k, char **map);
 int						ft_check_map(t_params *params, char **map);
@@ -275,6 +277,7 @@ void					print_tab(char **str);
 void					atoi_info(t_params *params);
 void					ft_free_params(t_params *to_free);
 void					quit(int num, t_params *params);
+void					check_cut_map(t_params *params);
 void					ft_get_tex(t_params *params);
 void					ft_get_sprite(t_params *params, char *path);
 void					ft_getpose_sprite(char **map, t_params *params);
@@ -300,6 +303,7 @@ void					sprite(t_params *params, int i, double *zbuffer);
 void					ft_pixel_to_image(int x, int y, t_params *params);
 void					ft_sprite_to_image(t_params *params);
 void					save(t_params *params);
+void					check_params(t_params *params, char *line);
 void					free_struct(t_params *params);
 void					ft_free_params(t_params *to_free);
 void					ft_free_mapfill(t_params *to_free);
