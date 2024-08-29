@@ -12,6 +12,7 @@
 
 #include "get_next_line.h"
 
+
 int		find_end_string(char *str)
 {
 	int	i;
